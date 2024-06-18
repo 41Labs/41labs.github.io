@@ -540,6 +540,15 @@ h6,
 }
 
 
-#logo {
-    max-width: 30%;
+a.navbar-brand {
+    max-width: 15%;
 }
+
+#logo {
+    max-width: 100%;
+}
+
+img#footer-logo {
+    width: 50%;
+}
+
