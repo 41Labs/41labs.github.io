@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6N5EBVLFPK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6N5EBVLFPK');
+    </script>
+    <meta charset="utf-8">
+    <title>Fine-tuning GPT-3.5 for mental health</title>
+    <meta name="description"
+        content="Use case: Fine-tuning GPT-3.5 for mental health">
+    <!-- Start -->
+    <!-- Facebook Meta Tags 
+    <meta property="og:title" content="Generative AI">
+    <meta property="og:site_name" content="41Labs LLC">
+    <meta property="og:url" content="https://41labsllc.com/">
+    <meta property="og:description" content="At 41Labs LLC, we are dedicated to provide AI software development solutions to drive valuable outcomes. Harness the power of AI and transform your organization into a leader in your industry.">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://41labsllc.com/img/about-img.jpg">
+    <!-- Twitter Meta Tags 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Software Development Solutions">
+    <meta name="twitter:description" content="At 41 Labs LLC, we are dedicated to provide AI software development solutions to drive valuable outcomes. Harness the power of AI and transform your organization into a leader in your industry.">
+    <meta property="twitter:domain" content="41labsllc.com">
+    <meta property="twitter:url" content="https://41labsllc.com/">
+    <meta name="twitter:title" content="41Labs - AI Driven Solutions For All">
+    <meta name="twitter:image" content="https://41labsllc.com/img/about-img.jpg">
+-->
+
+    <!-- End -->
+
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="canonical" href="https://41labsllc.com/Generative-AI.html">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/favico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favico/favicon-16x16.png">
+    <link rel="manifest" href="img/favico/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/favico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Ubuntu:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                <a href="index.html" class="navbar-brand">
+                    <!-- <h1 class="text-white">AI<span class="text-dark">.</span>Tech</h1> -->
+                    <img id="logo" src="img/41labs-white.png" alt="AI Solutions" title="AI Solutions">
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="index.html" class="nav-item nav-link">About</a>
+                        <a href="index.html" class="nav-item nav-link">Services</a>
+                        <a href="index.html" class="nav-item nav-link" style="width: 120px;">Why choose us?</a>
+                        <a href="index.html" class="nav-item nav-link">Projects</a>
+                        <a href="index.html" class="nav-item nav-link">FAQ</a>
+                        <a href="index.html" class="nav-item nav-link" style="width: 74px;">The Team</a>
+                        <!-- <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="feature.html" class="dropdown-item">Features</a>
+                                <a href="team.html" class="dropdown-item">Our Team</a>
+                                <a href="faq.html" class="dropdown-item">FAQs</a>
+                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                <a href="404.html" class="dropdown-item">404 Page</a>
+                            </div>
+                        </div> -->
+                        <a href="https://calendly.com/faizan1041-ihon/book-a-consultation-with-faizan"
+                            class="nav-item nav-link">Contact</a>
+                    </div>
+                    <!-- <button type="button" class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal"
+                        data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Hero Start -->
+    <div id="home" class="container-fluid pt-5 bg-primary hero-header mb-5">
+        <div class="container pt-5">
+            <div class="row g-5 pt-5">
+                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+                    <h1 class="display-4 text-white mb-4 animated slideInRight">Fine-tuning GPT-3.5 for Mental Health</h1>
+                    <p class="text-white mb-4 animated slideInRight"></p>
+                    <!-- <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInRight">Read More</a> -->
+                    <a target="_blank" href="https://calendly.com/faizan1041-ihon/book-a-consultation-with-faizan"
+                        title="Free Consultation"
+                        class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Book a free
+                        consultation</a>
+                </div>
+                <div class="col-lg-6 align-self-end text-center text-lg-end">
+                    <img class="img-fluid" src="img/hero-img.png" alt="Artificial Intelligence"
+                        title="Artificial Intelligence">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="background: rgba(20, 24, 62, 0.7);">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn btn-square bg-white btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <div class="input-group" style="max-width: 600px;">
+                        <input type="text" class="form-control bg-transparent border-light p-3"
+                            placeholder="Type search keyword">
+                        <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Full Screen Search End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- White Container Added here -->
+    <div class="container-fluid bg-white whitecontainer">
+        <div class="container py-2 mb-lg-5">
+            <!-- Title Row -->
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h1>Fine-tuning GPT-3.5 for Mental Health</h1>
+                    <p class="lead">In the swiftly evolving landscape of artificial intelligence, fine-tuning large language models (LLMs) like GPT-3.5 has become a critical endeavor for developers looking to tailor these powerful tools to specific applications. At our company, we embarked on a journey to fine-tune GPT-3.5, a process that presented unique challenges and invaluable lessons. Here’s a detailed account of our experience, the obstacles we faced, and the strategies that led us to success.
+
+</p>
+                </div>
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="mt-4">Choosing the Right Model</h3>
+                    <p class="text-justify">Our first step was selecting the appropriate version of GPT-3.5. After careful consideration, we opted for the "GPT-3.5-turbo-0613" variant, which provided a balance between computational efficiency and token limit adherence. The model's token limit was a critical factor since it dictated the amount of data we could process in one go.
+					</p>
+
+
+                    <h3 class="mt-4">Dataset Creation: A Trial by Error</h3>
+                    <p class="text-justify">Initially, our approach to dataset creation was fundamentally flawed. We tried splitting single interactions between AI and humans into separate examples. This method backfired spectacularly, leading to a model that behaved erratically and failed to grasp the context of conversations. Recognizing this mistake was a turning point. We revised our dataset to encapsulate entire conversations as single examples, which drastically improved the model’s performance and alignment with our goals.
+					</p>
+
+                    <h3 class="mt-4">Dataset Conversion: From PDF to JSONL</h3>
+                    <p class="text-justify">After extensive research on formatting data for fine-tuning GPT-3.5 Turbo, we decided to structure our dataset based on the assistant-user role interactions, a common format required for GPT-3.5 training. Our data, sourced from PDF transcripts, needed significant conversion. We began by extracting the text from PDFs into plain text files. Subsequent pre-processing steps were applied to refine the text, which was then structured into CSV format. The final step involved converting the CSV files into JSONL format, as required by the base model. To ensure effective model training and validation, we strategically split the data: transcripts with fewer pages were designated for validation, while those with more extensive content were used for training. This methodological approach not only optimized our dataset but also enhanced the model's learning efficacy.</p>
+
+					<h3 class="mt-4">Training and Validation: An Evolving Understanding</h3>
+                    <p class="text-justify  mb-lg-5">In our first training session, we overlooked including a validation file, yet the model still began to train with surprisingly decent outcomes. For our subsequent training, we incorporated a validation file which refined our results further. Using OpenAI’s Playground, we could monitor real-time metrics for both training and validation loss, which was instrumental in fine-tuning the model’s performance.
+					However, as we continued to train the model with more data, it started to deviate from expected behaviors. This anomaly led us to a crucial realization about fine-tuning LLMs: unlike smaller models, LLMs are already trained on vast datasets. Excessive fine-tuning can inadvertently overwrite the existing knowledge base rather than refining it, particularly if the new data is voluminous.
+
+						</p>
+					
+					<h3 class="mt-4">Strategic Adjustments and Insights</h3>
+                    <p class="text-justify  mb-lg-5">Armed with this new understanding, we adjusted our fine-tuning strategy to focus primarily on modifying the model's tone rather than its knowledge base. This approach required much less data and aligned better with our objectives, leading to significant improvements in how the model responded.
+					</p>
+					
+					<h3 class="mt-4">Deployment and Cost Considerations</h3>
+                    <p class="text-justify  mb-lg-5">Ultimately, we deployed our fine-tuned model on Azure. This platform posed its own set of challenges, notably the stricter token limits and lack of real-time loss metrics during fine-tuning, which meant we couldn't halt the process mid-way if the losses were excessive. Despite these hurdles, we managed to deploy successfully but remained mindful of the costs associated with fine-tuning in terms of data volume, the number of epochs, and the frequency of tuning.
+					And Surprise! Azure deployment cost us around 1400 dollars in a single month. We had deployed 2 models, one base and one fine-tuned. Without giving us a single warning beforehand, our budget had lost more than 2000 dollars. This is something to be very careful of when deploying to Azure. Therefore, it is always a good practice to check the Azure model pricing before deploying any type of model.
+					<a href="https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/#pricing">https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/#pricing</a>
+
+						</p>
+					
+					<h3 class="mt-4">Model Evaluation: A Road Less Traveled</h3>
+                    <p class="text-justify  mb-lg-5">One of the most challenging aspects of our fine-tuning journey was devising a robust evaluation method for our models. Evaluating the performance of a fine-tuned model requires a benchmark against which to measure its efficacy. We explored various frameworks such as OpenAI's eval, Langchain, and human-eval, all of which necessitate a ground truth for accurate assessment. However, creating a reliable ground truth proved to be a formidable task.
+					<br>After thorough research and deliberation, we sought advice from OpenAI's experts. Surprisingly, they revealed that even within OpenAI, model evaluation often relies on custom chat models created with GPT-4. Armed with this insight, we pivoted our approach to prioritize the creation of a robust ground truth dataset.
+					<br>We developed several custom chat models, each capable of generating ground truth files. These files were then used to evaluate responses from our fine-tuned model, the base model, Gemini, and Claude, serving as our benchmark models. Through meticulous evaluation, we determined that our fine-tuned model consistently outperformed the other models, validating the effectiveness of our fine-tuning process.
+						</p>
+					
+					<h3 class="mt-4">Concluding Thoughts</h3>
+                    <p class="text-justify  mb-lg-5">Our journey through fine-tuning GPT-3.5 Turbo has been a testament to the complexities and nuances of working with large language models. We've encountered and overcome challenges in dataset formatting, model evaluation, and training strategy, each contributing to a deeper understanding of the fine-tuning process.
+<br>One of our key realizations was the critical importance of dataset formatting. Converting our PDF transcripts into the assistant-user role format required for GPT-3.5 training was a meticulous process that significantly impacted the model's performance. Similarly, the evaluation phase posed its own set of challenges, with the need to create a reliable ground truth for accurate assessment.
+<br>Through these challenges, we've learned that fine-tuning an LLM is not just about updating its knowledge base but also about refining its tone and behavior. Real-time metrics and iterative adjustments played a crucial role in shaping our model's behavior, allowing us to achieve the desired outcomes efficiently.
+<br>As we reflect on our experience, we recognize the value of sharing our journey with the community. We hope that our insights into dataset formatting, evaluation, and training strategies will serve as a road-map for others embarking on similar endeavors. Whether you're a seasoned AI practitioner or new to the field, these lessons can help you navigate the complexities of fine-tuning large language models and optimize your AI implementations for success.
+</p>
+
+                  
+
+               </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Newsletter Start -->
+    <div class="container-fluid bg-primary newsletter">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-5 ps-lg-0 pt-5 pt-md-0 text-start wow fadeIn" data-wow-delay="0.3s">
+                    <img class="img-fluid" src="img/newsletter.png" alt="Let's subscribe the newsletter"
+                        title="Let's subscribe the newsletter">
+                </div>
+
+                <!-- <div id="mc_embed_shell">
+                    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+                <style type="text/css">
+                      #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 600px;}
+                      /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+                         We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+              </style>
+              <div id="mc_embed_signup">
+                  <form action="https://41labsllc.us13.list-manage.com/subscribe/post?u=cb3ec488cc85ccb3d8e333387&amp;id=7ec5663a28&amp;f_id=00e77ce9f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                      <div id="mc_embed_signup_scroll"><h2>Subscribe</h2>
+                          <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                          <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div>
+                      <div id="mce-responses" class="clear foot">
+                          <div class="response" id="mce-error-response" style="display: none;"></div>
+                          <div class="response" id="mce-success-response" style="display: none;"></div>
+                      </div>
+                  <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                      /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
+                      <input type="text" name="b_cb3ec488cc85ccb3d8e333387_7ec5663a28" tabindex="-1" value="">
+                  </div>
+                      <div class="optionalParent">
+                          <div class="clear foot">
+                              <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                              <p style="margin: 0px auto;"><a href="http://eepurl.com/iR_m3-" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+              </div>
+              <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
+              
+ -->
+
+
+                <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
+                    <div class="btn btn-sm border rounded-pill text-white px-3 mb-3">Newsletter</div>
+                    <h2 class="text-white mb-4">Let's subscribe the newsletter</h2>
+                    <div class="position-relative w-100 mt-3 mb-2">
+                        <form
+                            action="https://41labsllc.us13.list-manage.com/subscribe/post?u=cb3ec488cc85ccb3d8e333387&amp;id=7ec5663a28&amp;f_id=00e77ce9f0"
+                            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                            class="validate" target="_blank">
+                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="email" name="EMAIL"
+                                placeholder="Enter Your Email" style="height: 48px;">
+                            <button type="submit" name="subscribe" type="button"
+                                class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
+                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
+                        </form>
+                    </div>
+                    <small class="text-white-50">Stay updated with the latest AI trends and insights by subscribing to
+                        our newsletter.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="d-inline-block mb-3">
+                        <img id="footer-logo" src="img/41labs-white.png" alt="41Labs LLC" title="41Labs LLC">
+                    </a>
+                    <p class="mb-0">We are a leading provider of AI software development solutions, helping businesses
+                        leverage the power of artificial intelligence to drive innovation and achieve their goals.</p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="text-white mb-4">Get In Touch</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>30 N Gould St Ste R
+                        Sheridan,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WY 82801</p>
+
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Street 36 Silk Bank Plaza Lower
+                        Basement &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WorkZone, E11/3
+                        Islamabad,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 44000</p>
+
+                    <p><i class="fa fa-phone-alt me-3"></i><a href="tel:+13322524290">+13322524290</a></p>
+                    <p><i class="fa fa-envelope me-3"></i><a
+                            href="mailto: solutions@41labsllc.com">solutions@41labsllc.com</a></p>
+                    <div class="d-flex pt-2">
+                        <!-- <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a> -->
+                        <a target="_blank" class="btn btn-outline-light btn-social" href="https://facebook.com/41labs"
+                            title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a target="_blank" class="btn btn-outline-light btn-social"
+                            href="https://www.youtube.com/@41labs" title="Youtube"><i class="fab fa-youtube"></i></a>
+                        <a target="_blank" class="btn btn-outline-light btn-social"
+                            href="https://www.instagram.com/41labs/" title="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a target="_blank" class="btn btn-outline-light btn-social"
+                            href="https://www.linkedin.com/company/102197635/" title="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <!-- <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="text-white mb-4">Popular Link</h5>
+                    <a class="btn btn-link" href="#about">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                     <a class="btn btn-link" href="">Privacy Policy</a> 
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Career</a>
+                </div> -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.7s">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <a class="btn btn-link">Generative AI</a>
+                    <a class="btn btn-link">Computer Vision</a>
+                    <a class="btn btn-link">Deep Learning</a>
+                    <a class="btn btn-link">Machine Learning</a>
+                    <a class="btn btn-link">Full Stack Development</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">41Labs</a>, All Right Reserved.
+
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="#home">Home</a>
+                            <a href="#faqs">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
