@@ -9,12 +9,37 @@
 
 <url>
   <loc>https://41labsllc.com/</loc>
-  <lastmod>2024-06-19T19:11:32+00:00</lastmod>
+  <lastmod>2024-08-16T13:30:34+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://41labsllc.com/index.html</loc>
-  <lastmod>2024-06-19T19:11:32+00:00</lastmod>
+  <lastmod>2024-08-16T13:30:34+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://41labsllc.com/Generative-AI.html</loc>
+  <lastmod>2024-08-16T13:30:34+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://41labsllc.com/Machine-learning-Deep-Learning.html</loc>
+  <lastmod>2024-08-16T13:30:34+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://41labsllc.com/Computer-vision.html</loc>
+  <lastmod>2024-08-16T13:30:34+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://41labsllc.com/Full-Stack-Development.html</loc>
+  <lastmod>2024-08-16T13:30:34+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://41labsllc.com/Fine-tuning-GPT-3.5-for-mental-health.html</loc>
+  <lastmod>2024-08-16T13:30:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
